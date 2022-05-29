@@ -42,20 +42,14 @@ class UserMessageViewSet(viewsets.ModelViewSet):
     serializer_class = UserMessageSerializer
 
 
-    
-
-
 # Class based view to Get User Details using Token Authentication
 class UserDetailAPI(generics.ListAPIView):
-  throttle_classes = [UserRateThrottle]
+  # throttle_classes = [UserRateThrottle]
   authentication_classes = [TokenAuthentication]
   permission_classes = (permissions.IsAuthenticated,)
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  # def get(self,request,*args,**kwargs):
-  #   user = User.objects.get(id=request.user.id)
-  #   serializer = UserSerializer(user)
-  #   return Response(serializer.data)
+
 
 #Class based view to register user
 class RegisterUserAPIView(generics.CreateAPIView):

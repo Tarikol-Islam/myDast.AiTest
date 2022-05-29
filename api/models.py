@@ -10,12 +10,7 @@ class UserMessage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User, verbose_name="Message Creator", on_delete=models.CASCADE)
-    
-
-
 
     def __str__(self):
         return self.created_by.username
 
-    # def get_absolute_url(self):
-    #     return reverse("UserMessage_detail", kwargs={"pk": self.pk})
